@@ -1,0 +1,86 @@
+﻿<!-- <%@ Page Language="vb" AutoEventWireup="false" CodeBehind="F360.aspx.vb" Inherits="Mtrs_Ing_Equps_v1._0._0.F360" %> -->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="F360.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/logo-mmc.ico" />
+
+    <title>F360</title>
+</head>
+<body>
+    <form class="form-pie--gde" id="form1" runat="server">
+        <!-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="aspNetHidden">
+                    <input type="hidden" name="MY_tar" id="MY_tar" value="" />
+                    <input type="hidden" name="MY_arg" id="MY_arg" value="" />
+                    <input type="hidden" name="MY_idx" id="MY_idx" value="" />
+                    <input type="hidden" name="MY_luRealTable" id="MY_dT" value="" />
+                </div>
+                <div class="aspNetHidden">
+                    <asp:Button ID="Empy_event" runat="server" Text="Button" Style="display: none;" OnClick="HUB_event_Click" />
+                </div>
+                <div style="display: none;" id="new_Data"><%=ViewState("newData")%></div>
+                <div style="display: none;" id="data1"><%=ViewState("info1")%></div>
+                <div style="display: none;" id="index_msg"><%=ViewState("idxx")%></div>
+                <asp:Label Style="display: none;" ID="Label1" runat="server" Text="Label"></asp:Label>
+            </ContentTemplate>
+        </asp:UpdatePanel> -->
+
+        <div class="page__inner page--gde">
+
+            <div class="header header--gde">
+                <div class="header__inner">
+
+                    <div class="header__top header__top--gde">
+                        <div class="header__top__inner">
+
+                            <div class="header__top-izq header__top-izq--gde">
+                                <div class="header__top-izq__inner">
+                                    <img src="assets/logo-mmc.ico" alt="logo mmc" class="header__logo header__logo--mmc" />
+                                    <h1 class="header__h1 header__h1--gde header__h1--system-name">FLEX 360</h1>
+                                </div>
+                            </div>
+                            <div class="header__top-drcha header__top-drcha--gde">
+                                <div class="header__top-drcha__inner">
+                                    <img src="assets/logo-flex.png" alt="logo flex" class="header__logo header__logo--flex" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="header__btm header__btm--gde">
+                        <div class="header__btm__inner header__btm__inner--mmc">
+                            <!-- <h2 class="header__h2 header__h2--area">Equipment Engineering</h2> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sidebar-btn">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+            </div>
+
+            <div id="sideMenu" class="sidemenu">
+
+            </div>
+
+            <div class="body__menu body__menu--gde">
+                <iframe style="width: 100%; border:none; height: 100%; padding: 1rem;" src="https://insighttwo.flex.com/t/LMXR/views/Gdls_PvA_PCB4/PvAAllBuildings?iframeSizedToWindow=true&%3Aembed=y&%3AshowAppBanner=false&%3Adisplay_count=no&%3AshowVizHome=no&%3Aorigin=viz_share_link&%3Arefresh=y#1"></iframe>
+            </div>
+        </div>
+
+        <script type="module" src="F360.js"></script>
+
+    </form>
+</body>
+</html>
