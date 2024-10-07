@@ -260,16 +260,20 @@ body {
     position: fixed;
     top: var(--alto-header);
     left: 0;
-    background: linear-gradient(#f45925, #a68a43);
+    /* background: linear-gradient(#f45925, #a68a43); */
+    background-color: #232323;
     margin-left: -250px;
     transition: 0.5s;
 
-
-    padding: 1rem;
+    /* agregado para permitir el overflow */
     display: flex;
     flex-direction: column;
     justify-self: center;
-    /* gap: 1rem; */
+
+    /* padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
     &>div{
         padding: 1rem;
         border: 1px solid black;
@@ -279,7 +283,7 @@ body {
         background-color: #03a9f4;
         cursor: pointer;
         
-    }
+    } */
 }
 
 .sidebar-btn {

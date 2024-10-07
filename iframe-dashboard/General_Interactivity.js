@@ -1,18 +1,30 @@
-﻿
+
 import { Template__Nav__HTML, Function_Create_Nav } from "./General_Template_Nav_Menu.js" 
+import {ShowItemNav,revisarClase,ShowSubItemNav} from "./General_Interactivity_Module.js"
 const d = document;
 
 
 
 let sidebarStatus = false;
 //variable de menu
-let sideMenu = document.getElementById("sideMenu")
+let sideMenu = document.getElementById("sideMenu__Container")
+//variables para el submenu
+let side_nav 
+let side_nav_Li_Elements 
+
+//varibles del sub sub menu
+let sub_side_nav_Li_Elements
 
 d.addEventListener("DOMContentLoaded",async  (evento) => {
 
     initApp();
     Function_Create_Nav(Template__Nav__HTML, sideMenu).then(res=>{
         
+        side_nav = document.getElementById("Ul_Menu")
+        side_nav_Li_Elements = side_nav.querySelectorAll("li.Menu__Item")
+        side_nav_Li_Elements.forEach(li=>{
+            li.addEventListener("click", ShowItemNav)
+        })
     })
 });
 
