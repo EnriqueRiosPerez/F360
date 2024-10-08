@@ -69,16 +69,84 @@
             </div>
 
             <div id="sideMenu" class="sidemenu">
-                
+
             </div>
-            
+
             <div class="body__menu body__menu--gde">
-                <iframe id="Ifram__Chido" style="width: 100%; border:none; height: 100%; padding: 1rem;" src="https://app.powerbi.com/reportEmbed?reportId=749d4ef5-f0d1-4cec-9497-19dc46b2a691&autoAuth=true&ctid=3f0e69e0-eb38-4eb2-b4ee-52919719d31e"></iframe>
+             
             </div>
         </div>
 
+        <!-- en el mes de enero cambia el color de enero -->
         <script type="module" src="F360.js"></script>
-        <script type="module" src="Dashboard.js"></script>
+        <script async>
+
+            let colores = {
+                0:"rojo", //#FF0000
+                1:"amarillo", //#FFFF00
+                2:"verde" //#6CA100
+            }
+            let mes = {
+                1:"Jan",
+                2:"Feb",
+                3:"Mar",
+                4:"Abr",
+                5:"May",
+                6:"Jun",
+                7:"Jul",
+                8:"Ago",
+                9:"Sep",
+                10:"Oct",
+
+            }
+            let rows = {
+                0:	"arriba",
+                1:	"derecha",
+                2:	"abajo",
+                3:	"izquierda"
+            }
+
+            let All_info
+            document.addEventListener("DOMContentLoaded", async () => {
+                
+                let data = await get_Info()
+                
+                All_info = data
+                let agrupadosProyecto = Object.groupBy(All_info, datos => datos.Project_Name)
+                console.log(agrupadosProyecto)
+                let keys = Object.keys(agrupadosProyecto)
+                console.log(keys)
+                keys.forEach(key => {
+                    console.log(`Proyecto ${key}`)
+                    agrupadosProyecto[key].forEach(agrupado=>{
+                        // console.table(agrupado)
+                        console.table(mes[agrupado.Mouth], colores[agrupado.Qualification],agrupado.Comment, rows[agrupado.Status_VS_Previous])
+                        //              Calificacion ${agrupado.Qualification} -> 
+                        //              Comentario ${agrupado.Comment}`)
+                        
+                    })
+                });
+
+
+            })
+            function get_Info(){
+                return new Promise(async (resolve, reject) => {
+                    
+                    let data = await fetch("http://gdjf06109.americas.ad.flextronics.com:90/Data_Presentacion.aspx?type=ScoreCards_Info")
+                    let json = await data.json()    
+                    
+                    resolve(json)
+                    
+                    
+                })
+                
+                
+                
+            }
+
+
+
+        </script>
 
     </form>
 </body>
