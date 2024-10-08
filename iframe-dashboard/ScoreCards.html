@@ -73,14 +73,72 @@
             </div>
 
             <div class="body__menu body__menu--gde">
-             
+                <!-- aqui poner los elementos que se requieran  -->
+                <article class="Section__2" style="background-color: white; height: 100%; margin: 1rem 2.5rem;  width: 100%; padding: 1rem;"  >
+                    <div class="Table_Container">
+                        <table class="General__Table" id="Table_Principal">
+                            <thead class="ohla">
+                               <tr class="hfjdkskjfdhakdjf">
+
+                               </tr>
+                            </thead>
+                            <tbody class="eeaea">
+                                
+                            </tbody>
+                            <!-- <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <img src="http://gdjf06109.americas.ad.flextronics.com:90/Handlers/Catalog_Header.ashx?type=costumer&id=0&costumer_id=1">
+                                        </div>
+                                    </td>
+                                    <td>agufarro </td>
+                                    <td>Fernand Arroyo</td>
+                                    <td>undefined</td>
+                                    <td>Guadajalara south</td>
+                                    <td>N06</td>
+                                    <td>Test</td>
+                                    <td>Engineer</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>Usuario</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>1163172</td>
+                                    <td>GDJABASU </td>
+                                    <td>Alexis Abraham Basulto Esparza</td>
+                                    <td>undefined</td>
+                                    <td>Guadajalara south</td>
+                                    <td>N06</td>
+                                    <td>Test</td>
+                                    <td>Technican</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>Usuario</td>
+                                    <td>Yes</td>
+                                </tr>
+                            </tbody> -->
+                        </table>
+                    </div>
+               
+                </article>
+               
+
+
             </div>
         </div>
 
         <!-- en el mes de enero cambia el color de enero -->
         <script type="module" src="F360.js"></script>
         <script async>
-
+            let tabla = document.getElementById("Table_Principal")
+            let Tabla_Title = tabla.querySelector("tr")
+           let Tabla_Body = tabla.querySelector("tbody")
+            
+            console.log(tabla)
+            console.log(Tabla_Title)
+            console.log(Tabla_Body)
             let colores = {
                 0:"rojo", //#FF0000
                 1:"amarillo", //#FFFF00
@@ -113,14 +171,43 @@
                 
                 All_info = data
                 let agrupadosProyecto = Object.groupBy(All_info, datos => datos.Project_Name)
+                let agrupadpMeses = Object.groupBy(All_info,datos=>datos.Mouth)
+                console.log(agrupadpMeses)
                 console.log(agrupadosProyecto)
                 let keys = Object.keys(agrupadosProyecto)
+                let keysMeses = Object.keys(agrupadpMeses)
+                let Meses_vrg = []
+                keysMeses.forEach(mes1=>{
+                    Meses_vrg.push(mes[mes1])
+                })
                 console.log(keys)
+                console.log(Meses_vrg)
+
+                Tabla_Title.innerHTML = ""
+                Tabla_Title.innerHTML = `<td scope="col"></td>`
+                Meses_vrg.forEach(mou =>{
+                    Tabla_Title.innerHTML += `<td scope="col">${mou}</td>`
+                })
                 keys.forEach(key => {
                     console.log(`Proyecto ${key}`)
                     agrupadosProyecto[key].forEach(agrupado=>{
+                        // Tabla_Title.innerHTML += `<td scope="col">${agrupado.Mouth}</td>`
+                        
                         // console.table(agrupado)
                         console.table(mes[agrupado.Mouth], colores[agrupado.Qualification],agrupado.Comment, rows[agrupado.Status_VS_Previous])
+                        Tabla_Body.innerHTML += `
+                        <tr>
+                                    <td>
+                                        <div>
+                                            <img src="http://gdjf06109.americas.ad.flextronics.com:90/Handlers/Catalog_Header.ashx?type=costumer&id=0&costumer_id=1">
+                                        </div>
+                                    </td>
+                                    <td>${mes[agrupado.Mouth]} </td>
+                                    <td>${colores[agrupado.Qualification]}</td>
+                                    <td>${rows[agrupado.Status_VS_Previous]}</td>
+                                </tr>
+                                `    
+
                         //              Calificacion ${agrupado.Qualification} -> 
                         //              Comentario ${agrupado.Comment}`)
                         
@@ -129,6 +216,14 @@
 
 
             })
+
+
+            function Create_months(){
+                return new Promise((resolve, reject) => {
+                    
+                })
+            } 
+
             function get_Info(){
                 return new Promise(async (resolve, reject) => {
                     
